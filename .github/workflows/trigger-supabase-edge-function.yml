@@ -11,5 +11,10 @@ jobs:
     steps:
       - name: Call Supabase Edge Function
         run: |
-          curl -X POST https://tucwrxkpnorotmuqbgkn.supabase.co/functions/v1/process-transformations
+          curl -sSf \
+               -X POST \
+               -H "Authorization: Bearer $SUPABASE_FUNCTION_KEY" \
+               https://tucwrxkpnorotmuqbgkn.supabase.co/functions/v1/process-transformations
+        env:
+          SUPABASE_FUNCTION_KEY: ${{ secrets.SUPABASE_FUNCTION_KEY }}
 
