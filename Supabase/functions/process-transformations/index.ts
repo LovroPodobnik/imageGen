@@ -92,8 +92,8 @@ Deno.serve(async ()=>{
       2. Resize to a 512-px preview using ImageScript
     */
     const img = await Image.decode(previewBuf);
-    const small     = img.resizeToFit(512, 512); // preserve aspect ratio
-    const smallBuf  = await small.encode();      // PNG by default
+    const smallImg  = img.contain(512, 512); // preserve aspect ratio using ImageScript's contain
+    const smallBuf  = await smallImg.encode();   // PNG by default
 
     /*
       3. Upload the preview to a public bucket
