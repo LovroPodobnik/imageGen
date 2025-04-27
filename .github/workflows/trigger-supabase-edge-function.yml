@@ -1,0 +1,14 @@
+name: Trigger Supabase Edge Function
+
+on:
+  schedule:
+    - cron: '*/1 * * * *' # every minute (UTC)
+
+jobs:
+  call-edge-function:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Supabase Edge Function
+        run: |
+          curl -X POST https://tucwrxkpnorotmuqbgkn.supabase.co/functions/v1/process-transformations
+
