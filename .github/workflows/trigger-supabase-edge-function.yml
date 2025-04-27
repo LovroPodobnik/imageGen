@@ -3,6 +3,7 @@ name: Trigger Supabase Edge Function
 on:
   schedule:
     - cron: '*/1 * * * *' # every minute (UTC)
+  workflow_dispatch:
 
 jobs:
   call-edge-function:
